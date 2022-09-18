@@ -8,7 +8,10 @@ const Search = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCocktail(search));
+    const getData = setTimeout(() => {
+      dispatch(fetchCocktail(search));
+    }, 1000);
+    return () => clearTimeout(getData);
   }, [search]);
 
   return (
